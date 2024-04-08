@@ -11,7 +11,7 @@ class MyHomePage extends StatelessWidget {
         children: [
           LedWidget(
             onColor: Colors.red,
-            state: LedState.off,
+            state: LedState.on,
           ),
         ],
       ),

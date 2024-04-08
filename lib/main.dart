@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nintendo/components/action_buttom_widget.dart';
 import 'package:nintendo/home_page.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const ActionButtomWidget(),
     );
   }
 }
