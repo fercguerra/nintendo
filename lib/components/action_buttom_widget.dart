@@ -12,6 +12,7 @@ class ActionButtomWidget extends StatelessWidget {
   final AlignmentGeometry frontLayerEnd;
   final Color arrowColor;
   final int quarterTurns;
+  final String? letter;
 
   const ActionButtomWidget({
     super.key,
@@ -26,10 +27,29 @@ class ActionButtomWidget extends StatelessWidget {
     this.frontLayerEnd = Alignment.bottomCenter,
     this.arrowColor = const Color(0xFF000000),
     this.quarterTurns = 0,
+    this.letter,
   });
 
   @override
   Widget build(BuildContext context) {
+    late final Widget decision;
+    if (letter != null) {
+      decision = Text(
+        letter!,
+        style: TextStyle(
+          color: const Color(0xFFFFFFFF),
+          fontSize: size * 0.53,
+        ),
+      );
+    } else {
+      decision = RotatedBox(
+        quarterTurns: quarterTurns,
+        child: CustomPaint(
+          size: Size(size * 0.32, size * 0.32),
+          painter: ArrowPainter(),
+        ),
+      );
+    }
     return Container(
       alignment: Alignment.center,
       height: size,
@@ -57,13 +77,7 @@ class ActionButtomWidget extends StatelessWidget {
             ],
           ),
         ),
-        child: RotatedBox(
-          quarterTurns: quarterTurns,
-          child: CustomPaint(
-            size: Size(size * 0.32, size * 0.32),
-            painter: ArrowPainter(),
-          ),
-        ),
+        child: decision,
       ),
     );
   }
@@ -74,7 +88,7 @@ class ArrowPainter extends CustomPainter {
 
   ArrowPainter({
     super.repaint,
-    this.color = const Color(0xff0000000),
+    this.color = const Color(0xff000000),
   });
   @override
   void paint(Canvas canvas, Size size) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nintendo/components/action_buttom_widget.dart';
-import 'package:nintendo/components/led_widget.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
@@ -14,7 +13,9 @@ class MyHomePage extends StatelessWidget {
           //   onColor: Colors.red,
           //   state: LedState.on,
           // ),
-          ActionButtomWidget()
+          ActionButtomWidget(
+            letter: 'X',
+          )
         ],
       ),
     );
